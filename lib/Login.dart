@@ -2,6 +2,11 @@ import 'dart:convert';
 import 'dart:async';
 import 'package:arduino_bluetooth_tutorial/MainPage.dart';
 import 'package:arduino_bluetooth_tutorial/SelectBondedDevicePage.dart';
+import 'package:arduino_bluetooth_tutorial/widget/button.dart';
+import 'package:arduino_bluetooth_tutorial/widget/inputEmail.dart';
+import 'package:arduino_bluetooth_tutorial/widget/password.dart';
+import 'package:arduino_bluetooth_tutorial/widget/textLogin.dart';
+import 'package:arduino_bluetooth_tutorial/widget/verticalText.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:localstorage/localstorage.dart';
@@ -42,47 +47,30 @@ class _LoginState extends State<Login> {
         title: Text("Login"),
       ),
       body: Container(
-        child: Form(
-          child: Column(
-            children: [
-              TextFormField(
-                controller: textController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "Mobile Number",
-                  labelStyle: TextStyle(
-                    fontSize: 15.0,
-                  ),
-                  hintText: "Enter your mobile number",
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [Colors.blueGrey, Colors.lightBlueAccent]),
+        ),
+        child: ListView(
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Row(children: <Widget>[
+                  VerticalText(),
+                  TextLogin(),
+                ]),
+                InputEmail(
+                  textController: textController,
                 ),
-              ),
-              TextFormField(
-                controller: passwordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "Password",
-                  labelStyle: TextStyle(
-                    fontSize: 15.0,
-                  ),
-                  hintText: "Enter your password",
+                PasswordInput(
+                  passwordController: passwordController,
                 ),
-              ),
-              GestureDetector(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                  ),
-                  height: 40,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [Text('Login')],
-                  ),
-                ),
-                onTap: () => login(),
-              )
-            ],
-          ),
+                ButtonLogin(fn: login),
+              ],
+            ),
+          ],
         ),
       ),
     );

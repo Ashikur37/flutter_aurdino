@@ -30,12 +30,12 @@ class _ChatPage extends State<ChatPage> {
   String raw1 = "";
   String raw2 = "";
   String raw3 = "";
-  String raw4 = "";
-  String raw5 = "";
-  String raw6 = "";
-  String raw7 = "";
+  String raw4 = "4";
+  String raw5 = "5";
+  String raw6 = "6";
+  String raw7 = "7";
 
-  String raw8 = "";
+  String raw8 = "8";
 
   String humi = "";
   String pinNum = "";
@@ -99,8 +99,24 @@ class _ChatPage extends State<ChatPage> {
     super.dispose();
   }
 
-  refresh() {
-    return raw1;
+  refresh(String console) {
+    if (console == "1") {
+      return raw1;
+    } else if (console == "2") {
+      return raw2;
+    } else if (console == "3") {
+      return raw3;
+    } else if (console == "4") {
+      return raw4;
+    } else if (console == "5") {
+      return raw5;
+    } else if (console == "6") {
+      return raw6;
+    } else if (console == "7") {
+      return raw7;
+    } else if (console == "8") {
+      return raw8;
+    }
   }
 
   @override
@@ -149,6 +165,7 @@ class _ChatPage extends State<ChatPage> {
                                     return SingleTask(
                                       data: raw1,
                                       fn: refresh,
+                                      console: "1",
                                     );
                                   },
                                 ),
@@ -196,7 +213,11 @@ class _ChatPage extends State<ChatPage> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {
-                                    return SingleTask();
+                                    return SingleTask(
+                                      data: raw2,
+                                      fn: refresh,
+                                      console: "2",
+                                    );
                                   },
                                 ),
                               ),
@@ -251,7 +272,11 @@ class _ChatPage extends State<ChatPage> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {
-                                    return SingleTask();
+                                    return SingleTask(
+                                      data: raw3,
+                                      fn: refresh,
+                                      console: "3",
+                                    );
                                   },
                                 ),
                               ),
@@ -298,7 +323,11 @@ class _ChatPage extends State<ChatPage> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {
-                                    return SingleTask();
+                                    return SingleTask(
+                                      data: raw4,
+                                      fn: refresh,
+                                      console: "4",
+                                    );
                                   },
                                 ),
                               ),
@@ -353,7 +382,11 @@ class _ChatPage extends State<ChatPage> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {
-                                    return SingleTask();
+                                    return SingleTask(
+                                      data: raw5,
+                                      fn: refresh,
+                                      console: "5",
+                                    );
                                   },
                                 ),
                               ),
@@ -400,7 +433,11 @@ class _ChatPage extends State<ChatPage> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {
-                                    return SingleTask();
+                                    return SingleTask(
+                                      data: raw6,
+                                      fn: refresh,
+                                      console: "6",
+                                    );
                                   },
                                 ),
                               ),
@@ -455,7 +492,11 @@ class _ChatPage extends State<ChatPage> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {
-                                    return SingleTask();
+                                    return SingleTask(
+                                      data: raw7,
+                                      fn: refresh,
+                                      console: "7",
+                                    );
                                   },
                                 ),
                               ),
@@ -502,7 +543,11 @@ class _ChatPage extends State<ChatPage> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {
-                                    return SingleTask();
+                                    return SingleTask(
+                                      data: raw8,
+                                      fn: refresh,
+                                      console: "8",
+                                    );
                                   },
                                 ),
                               ),
